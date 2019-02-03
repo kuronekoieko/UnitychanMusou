@@ -243,8 +243,7 @@ namespace UnityChan
         void Atk()
         {
 
-
-            bool canAttack = currentBaseState.normalizedTime > 0.8f && currentBaseState.normalizedTime < 1.2f;
+            bool canAttack = currentBaseState.normalizedTime > 0.8f && currentBaseState.normalizedTime < 1.3f;
             if (currentBaseState.nameHash == idleState) canAttack = true;
 
             if (canAttack)
