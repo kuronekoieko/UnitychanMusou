@@ -254,14 +254,10 @@ namespace UnityChan
         {
             bool canAttack = currentBaseState.normalizedTime > 0.8f && currentBaseState.normalizedTime < 1.2f;
 
-            //Debug.Log(currentBaseState.nameHash != beforeBaseState.nameHash);
-            //if (currentBaseState.nameHash != beforeBaseState.nameHash) return;
             if (canAttack)
             {
                 if (Input.GetButtonDown("Jump"))
                 {
-                    //anim.speed = attackSpeed;
-                    //anim.SetFloat("NormalizedTime", currentBaseState.normalizedTime);
                     anim.SetTrigger("SwordAttack");
                 }
             }
