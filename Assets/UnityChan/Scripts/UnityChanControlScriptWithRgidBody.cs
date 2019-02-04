@@ -31,6 +31,8 @@ namespace UnityChan
         public float rotateSpeed = 2.0f;
         // ジャンプ威力
         public float jumpPower = 3.0f;
+        //攻撃モーションのスピード
+        public float attackSpeed = 1.0f;
         // キャラクターコントローラ（カプセルコライダ）の参照
         private CapsuleCollider col;
         private Rigidbody rb;
@@ -41,6 +43,7 @@ namespace UnityChan
         private Vector3 orgVectColCenter;
         private Animator anim;                          // キャラにアタッチされるアニメーターへの参照
         private AnimatorStateInfo currentBaseState;         // base layerで使われる、アニメーターの現在の状態の参照
+        private AnimatorStateInfo beforeBaseState;         // base layerで使われる、アニメーターの現在の状態の参照
 
         private GameObject cameraObject;    // メインカメラへの参照
 
@@ -108,7 +111,8 @@ namespace UnityChan
             }
 
 
-            if (currentBaseState.nameHash == idleState || currentBaseState.nameHash == locoState) {
+            if (currentBaseState.nameHash == idleState || currentBaseState.nameHash == locoState)
+            {
                 // 上下のキー入力でキャラクターを移動させる
                 transform.localPosition += velocity * Time.fixedDeltaTime;
 
@@ -182,8 +186,12 @@ namespace UnityChan
                 {
                     resetCollider();
                 }
-                // スペースキーを入力したらRest状態になる
-                Atk();
+                // スペースキーを入力したらAtk状態になる
+                if (Input.GetButtonDown("Jump"))
+                {
+                    anim.SetTrigger("SwordAttack");
+                    Debug.Log("idle→atk");
+                }
             }
             else if (currentBaseState.nameHash == atk1State)
             {
@@ -221,6 +229,8 @@ namespace UnityChan
                     anim.SetBool("Rest", false);
                 }
             }
+
+            beforeBaseState = currentBaseState;
         }
 
         void Jump()
@@ -242,21 +252,18 @@ namespace UnityChan
 
         void Atk()
         {
+            bool canAttack = currentBaseState.normalizedTime > 0.8f && currentBaseState.normalizedTime < 1.2f;
 
-            bool canAttack = currentBaseState.normalizedTime > 0.8f && currentBaseState.normalizedTime < 1.3f;
-            if (currentBaseState.nameHash == idleState) canAttack = true;
-
+            //Debug.Log(currentBaseState.nameHash != beforeBaseState.nameHash);
+            //if (currentBaseState.nameHash != beforeBaseState.nameHash) return;
             if (canAttack)
             {
-
                 if (Input.GetButtonDown("Jump"))
                 {
-                    anim.speed = 1.2f;
+                    //anim.speed = attackSpeed;
+                    //anim.SetFloat("NormalizedTime", currentBaseState.normalizedTime);
                     anim.SetTrigger("SwordAttack");
-                    //transform.localPosition += new Vector3(0, 0, 1.0f) * forwardSpeed * Time.fixedDeltaTime;
-                    //Debug.Log(anim.name);
                 }
-
             }
             else
             {
@@ -264,12 +271,10 @@ namespace UnityChan
             }
 
 
-
         }
 
         public void Hit()
         {
-
         }
 
 
