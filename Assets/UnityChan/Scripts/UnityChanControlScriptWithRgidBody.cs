@@ -252,18 +252,9 @@ namespace UnityChan
 
         void Atk()
         {
-            bool canAttack = currentBaseState.normalizedTime > 0.8f && currentBaseState.normalizedTime < 1.2f;
-            canAttack = true;
-            if (canAttack)
+            if (Input.GetButtonDown("Jump"))
             {
-                if (Input.GetButtonDown("Jump"))
-                {
-                    anim.SetTrigger("SwordAttack");
-                }
-            }
-            else
-            {
-
+                anim.SetTrigger("SwordAttack");
             }
 
             anim.SetFloat("NormalizedTime", currentBaseState.normalizedTime);
