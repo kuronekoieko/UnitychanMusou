@@ -272,6 +272,7 @@ namespace UnityChan
         {
         }
 
+        /*
         void OnGUI()
         {
             GUI.Box(new Rect(Screen.width - 260, 10, 250, 150), "Interaction");
@@ -282,6 +283,7 @@ namespace UnityChan
             GUI.Label(new Rect(Screen.width - 245, 110, 250, 30), "Left Control : Front Camera");
             GUI.Label(new Rect(Screen.width - 245, 130, 250, 30), "Alt : LookAt Camera");
         }
+        */
 
 
         // キャラクターのコライダーサイズのリセット関数

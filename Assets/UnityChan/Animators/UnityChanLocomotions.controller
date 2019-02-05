@@ -846,7 +846,6 @@ AnimatorState:
   m_Transitions:
   - {fileID: 110115534}
   - {fileID: 110124974}
-  - {fileID: 1101069382261847506}
   m_StateMachineBehaviours: []
   m_Position: {x: 156, y: -144, z: 0}
   m_IKOnFeet: 1
@@ -1045,20 +1044,20 @@ AnimatorStateMachine:
     m_Position: {x: -144, y: -144, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102072341670226886}
-    m_Position: {x: -168, y: 36, z: 0}
+    m_Position: {x: -168, y: -36, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102571902847907698}
-    m_Position: {x: -168, y: 132, z: 0}
+    m_Position: {x: -168, y: 36, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102816435656736252}
-    m_Position: {x: -168, y: 240, z: 0}
+    m_Position: {x: -168, y: 108, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -192, y: -60, z: 0}
-  m_EntryPosition: {x: -36, y: -96, z: 0}
+  m_AnyStatePosition: {x: 36, y: -228, z: 0}
+  m_EntryPosition: {x: 48, y: -96, z: 0}
   m_ExitPosition: {x: 468, y: 132, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 110200000}
@@ -1178,31 +1177,6 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.8152381
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &1101069382261847506
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: SwordAttack
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102072341670226886}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.6875
-  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
